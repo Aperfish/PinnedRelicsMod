@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AssemblyName>PinnedRelicsMod</AssemblyName>
+    <Version>1.2.0</Version>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GameRefsDir Condition="'$(GameRefsDir)' == ''">$(CESIUM_GAME_REFS)</GameRefsDir>
+    <SdkDll Condition="'$(SdkDll)' == ''">$(CESIUM_SDK_DLL)</SdkDll>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CesiumLoader.SDK"><HintPath>$(SdkDll)</HintPath><Private>false</Private></Reference>
+    <Reference Include="AstralParty.Runtime"><HintPath>$(GameRefsDir)/AstralParty.Runtime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(GameRefsDir)/UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Google.Protobuf.Runtime"><HintPath>$(GameRefsDir)/Google.Protobuf.Runtime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UniTask"><HintPath>$(GameRefsDir)/UniTask.dll</HintPath><Private>false</Private></Reference>
+    <None Update="PinnedRelicsMod.json;config.json"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></None>
+  </ItemGroup>
+  <Target Name="CheckReferences" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(SdkDll)')" Text="Set CESIUM_SDK_DLL or -p:SdkDll to the installed CesiumLoader.SDK.dll." />
+    <Error Condition="!Exists('$(GameRefsDir)/AstralParty.Runtime.dll')" Text="Set CESIUM_GAME_REFS or -p:GameRefsDir to the extracted game reference directory." />
+  </Target>
+</Project>
