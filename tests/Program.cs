@@ -15,9 +15,9 @@ internal static class Program
     {
         string[] unknown;
         var defaults = RelicCatalog.Select(RelicCatalog.DefaultNames, out unknown);
-        Check(unknown.Length == 0 && defaults.Select(r => r.Id).SequenceEqual(new[] {50024,50082,50041,50086,50078,50079}), "Original six changed");
+        Check(unknown.Length == 0 && defaults.Select(r => r.Id).SequenceEqual(new[] {50024,50082,50041,50086,50078,50079,50010,50011}), "Default eight relics or order changed");
         var extended = RelicCatalog.Select(RelicCatalog.DefaultNames + ",星币锤", out unknown);
-        Check(unknown.Length == 0 && extended.Length == 7 && extended[6].Id == 50043, "Chinese-name addition failed");
+        Check(unknown.Length == 0 && extended.Length == 9 && extended[8].Id == 50043, "Chinese-name addition failed");
         var separated = RelicCatalog.Select(" 磨刀石，友情微章；肾上腺素－高效\n紫色飞星、金色飞星|星币锤", out unknown);
         Check(unknown.Length == 0 && separated.Length == 6 && separated[0].Id == 50082 && separated[2].Id == 50024, "Separators or name normalization failed");
         var duplicate = RelicCatalog.Select("磨刀石,星币锤,磨刀石,友情徽章,友情微章", out unknown);

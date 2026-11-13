@@ -14,7 +14,7 @@ namespace PinnedRelicsMod
 
     internal static class RelicCatalog
     {
-        internal const string DefaultNames = "肾上腺素-高效,磨刀石,友情徽章,安全气囊,紫色飞星,金色飞星";
+        internal const string DefaultNames = "肾上腺素-高效,磨刀石,友情徽章,安全气囊,紫色飞星,金色飞星,美工刀-初级,美工刀-锋利";
         private static readonly Dictionary<string, RelicIcon> ByName = Load();
 
         private static Dictionary<string, RelicIcon> Load()
