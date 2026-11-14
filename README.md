@@ -1,6 +1,6 @@
 # 关键筹码置顶 PinnedRelicsMod 1.2.0
 
-## 目前已经内置在CesiumLoader中，建议通过AstralParty.Toys https://github.com/higashitaniyume/AstralParty.Toys安装
+## 目前已经内置在CesiumLoader中，建议通过AstralParty.Toys https://github.com/higashitaniyume/AstralParty.Toys 安装
 《吉星派对》（Astral Party）CesiumLoader 独立模组。
 玩家持有名单内的筹码时，在左侧对应玩家星币下方横排显示图片。
 保留原有大小和位置配置，默认图标大小 30、间距 3，不额外添加背景或描边。
